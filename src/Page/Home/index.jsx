@@ -1,10 +1,11 @@
+import BookList from "../../components/BookList";
 
 const Home = () => {
 
     
     return(
         <div>
-        Sou a Home
+        <BookList/>
         </div>
     )
 
