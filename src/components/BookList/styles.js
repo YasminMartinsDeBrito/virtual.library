@@ -21,15 +21,14 @@ export const Container = styled.div`
 .stripes{
     position:absolute ;
 }
+
+div.imgs{
+    display: flex;
+    justify-content:center;
+    
+}
             .relogio{
                 position: relative;
-                display: none;
-
-               @media screen and (min-width:768px){
-                   display: flex;
-                   justify-content: center;
-                   align-items:center;
-                }
             }
     div{
         position: relative;
@@ -38,7 +37,8 @@ export const Container = styled.div`
         height: 100px;
 
         @media screen and (min-width:768px){
-            margin: 0 150px;
+            top: 130px;
+            margin: 0 350px;
                 img{
                     width: 150px;
                 }

@@ -36,13 +36,16 @@ const BookList = () => {
     <Main>   
       <Container >
           <img className="stripes" src={stripes} alt=' '/>
-        <div>
-          <img src={clock} alt=' '/>
-        </div>
-      
-        <div>
-          <img src={logo} alt=' '/>
-        </div>
+          <div className="imgs">
+
+            <div>
+              <img src={clock} alt=' '/>
+            </div>
+          
+            <div>
+              <img src={logo} alt=' '/>
+            </div>
+          </div>
        
 
       </Container>
