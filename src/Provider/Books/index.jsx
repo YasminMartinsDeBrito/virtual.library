@@ -71,66 +71,68 @@ const shelf = [
 
 export const BooksProvider = ({ children }) => {
     const [books, setBooks] = useState( shelf );
-        
-        
-        const onDragEnd =(book, startBook, endBook) => {
-            const result = [...book];
-            const [removed] = result.splice(startBook, 1);
-            result.splice(endBook, 0, removed);
-            return result;
-        }
+    const [open, setOpen] = useState(false)        
+    const onDragEnd =(book, startBook, endBook) => {
+        const result = [...book];
+        const [removed] = result.splice(startBook, 1);
+        result.splice(endBook, 0, removed);
+        return result;
+    }
         
         //organizar livros
         const byOrganize = () => {
-            setBooks([].concat(books).sort((a,b) => (a.id < b.id ? -1 :a.id > b.id ? 1: 0)));
-        
-    };
+            setBooks([].concat(books).sort((a,b) => (a.id < b.id ? -1 :a.id > b.id ? 1: 0)) );
+            setOpen(true)
+        }
+        const byDesorganize = () => {
+            setBooks([].concat(books).sort((a,b) => (a.id > b.id ? -1 :a.id > b.id ? 1: 0)) );
+            setOpen(false)
+        }
 
     // em ordem alfabetica
     const byAlphabet = () => {
-    setBooks([].concat(books).sort((a,b) => (a.name < b.name ? -1 : a.name > b.name ? 1 : 0)));
-};
+        setBooks([].concat(books).sort((a,b) => (a.name < b.name ? -1 : a.name > b.name ? 1 : 0)));
+        setOpen(true)
+    };
+    const byNoalphabet = () => {
+        setBooks([].concat(books).sort((a,b) => (a.name > b.name ? -1 : a.name > b.name ? 1 : 0)));
+        setOpen(false)
+    };
     
     // em order tamanho
     const byNumber = () => {
        setBooks([].concat(books).sort((a,b) => (a.tamanho < b.tamanho ? -1 : a.tamanho > b.tamanho ? 1 : 0)));
-      
+       setOpen(true)
     };
+    const byNonumber = () => {
+        setBooks([].concat(books).sort((a,b) => (a.tamanho > b.tamanho ? -1 : a.tamanho > b.tamanho ? 1 : 0)));
+        setOpen(false)
+     };
 
     // em ordem de cores
     const byColor = () => {
-        
         setBooks([].concat(books).sort((a,b) => (a.color < b.color ? -1 :a.color > b.color ? 1: 0)));
+        setOpen(true)
     };
-    
-    const createBook = (newBook) => {
-        if(newBook.name === books.name){
-            console.log('nome ja cadastrado')
-        }
-        else{
-            setBooks([...books,newBook]);
-            localStorage.setItem('@libray: books', books);
-        }
+    const byNocolor = () => {
+        setBooks([].concat(books).sort((a,b) => (a.color > b.color ? -1 :a.color > b.color ? 1: 0)));
+        setOpen(false)
     };
 
-    // remover livros
-    const deleteBook = (removeBook) => {
-        const remove = books.filter((book) => book.id !== removeBook.id);
-        setBooks(remove);
-    };
-
-   
     return (
         <BooksContext.Provider value={{
             books,
             setBooks,
-            createBook,
-            deleteBook,
             byAlphabet,
             byNumber,
             onDragEnd,
             byColor,
             byOrganize,
+            byDesorganize,
+            byNoalphabet,
+            byNocolor,
+            byNonumber,
+            open,
             shelf,
             }}>
             {children}

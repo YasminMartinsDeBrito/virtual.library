@@ -10,16 +10,19 @@ export const Main = styled.div`
                 flex-direction: row-reverse;
             }
 `
+
+
 export const Container = styled.div`
-display: flex ;
-justify-content: center;
-margin-top: 10px;
+    display: flex ;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 70px;
 
-/* @media screen and (min-width:768px){
-              margin-top: 10%;
-            } */
-
+.stripes{
+    position:absolute ;
+}
             .relogio{
+                position: relative;
                 display: none;
 
                @media screen and (min-width:768px){
@@ -28,37 +31,23 @@ margin-top: 10px;
                    align-items:center;
                 }
             }
-div{
-    background-color:#7209b7;
-    border:#3a0ca3 solid 2px;
-    border-radius: 100%;
-    width:100px;
-    height: 100px;
-    margin-top:10px;
-    
+    div{
+        position: relative;
+        margin-top:10px;
+        width:100px;
+        height: 100px;
 
-    @media screen and (min-width:768px){
-        margin: 0 150px;
+        @media screen and (min-width:768px){
+            margin: 0 150px;
+                img{
+                    width: 150px;
+                }
+                .stripes{
+                        width: 100%;
+                }
+        }
     }
-}
-p{
-        text-align:center;
-        font-size:20px;
-        color:#fff;
-        display: block;
-    }
-    strong{
-        text-align:center;
-        font-size:22px;
-        font-weight: 700;
-    }
-    span{
-        text-align:center;
-        font-size:19px;
-        font-style:italic;
-        font-weight: 900;
-        margin-bottom: 10px;
-    }
+
 
 `
 
@@ -68,10 +57,8 @@ export const Container2 = styled.div`
     flex-direction: column;
     align-items:center;
     width: 100vw;
-    height: 300px;
     img.ground{
     position: relative;
-    background-size:cover;
     
 }
 
@@ -94,6 +81,12 @@ export const Container2 = styled.div`
             position:absolute;
             width: 150px;
             height: 170px;
+           
+            @media screen and (min-width:768px){
+               
+                left:40px;
+            }
+            }
         }
     }
     div.box{
@@ -131,29 +124,28 @@ export const Container2 = styled.div`
     }
 
     @media screen and (min-width:768px){
-              margin-top: 20%;
-
-              .organize{
-                  width: 150px;
-              }
+            margin-top: 20%;
+            .organize{
+                width: 150px;
             }
+    }
 
 `
 export const BookItem = styled.div`
-position: absolute;
-margin: 10px  auto;
-padding-top: 5px;
-max-width:1000px;
-width: 280px;
-display: flex;
-justify-content:center;
+    position: absolute;
+    margin: 10px  auto;
+    padding-top: 5px;
+    max-width:1000px;
+    width: 280px;
+    display: flex;
+    justify-content:center;
 
 img.bookcase{
-position: absolute;
-border-radius: 15px;
-margin: 0 auto;
-max-width:1000px;
-width: 250px;
+    position: absolute;
+    border-radius: 15px;
+    margin: 0 auto;
+    max-width:1000px;
+    width: 250px;
     top:-38px;
     left:70px;
 }
@@ -161,22 +153,18 @@ width: 250px;
    li{
        position: relative;
        display: flex;
-        
        margin: 1px;
        width: 10px;
        height: 30px;
        list-style: none;
-       
-       
     }
     
     @media screen and (min-width:768px){
-
         width: 400px;
         li{
             margin: 5px;
-                width: 30px;
-                height: 100px;
+            width: 30px;
+            height: 100px;
             }
 
             img.bookcase{
@@ -189,5 +177,5 @@ width: 250px;
                 }
         }
         
-        `
+`
 
